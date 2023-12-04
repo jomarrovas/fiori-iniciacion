@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='S4DCLNT200')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZDEMO_SO_ISSUE_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZDEMO_SO_ISSUEType" sap:label="Sales order Issues from S/4HANA system" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="codigo_interno"/>
+                    <PropertyRef Name="codigo"/>
+                </Key>
+                <Property Name="codigo_interno" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label=""/>
+                <Property Name="codigo" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Business Partner" sap:quickinfo="Business Partner Number"/>
+                <Property Name="nombre" Type="Edm.String" MaxLength="120" sap:display-format="UpperCase" sap:label="" sap:quickinfo="char120"/>
+                <Property Name="nombre_negocio" Type="Edm.String" MaxLength="40" sap:label="Name 1" sap:quickinfo="Name 1 of organization"/>
+            </EntityType>
+            <EntityContainer Name="ZDEMO_SO_ISSUE_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZDEMO_SO_ISSUE" EntityType="ZDEMO_SO_ISSUE_CDS.ZDEMO_SO_ISSUEType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://fiorides.alcsa.com.gt:44300/sap/opu/odata/sap/ZDEMO_SO_ISSUE_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://fiorides.alcsa.com.gt:44300/sap/opu/odata/sap/ZDEMO_SO_ISSUE_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

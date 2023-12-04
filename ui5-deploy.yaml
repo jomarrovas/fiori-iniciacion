@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: projectdemo
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: alcsades
+          url: https://fiorides.alcsa.com.gt:44300
+        app:
+          name: Z_BSP_DEMO
+          description: Aplicacion demo BSP
+          package: $TMP
+          transport: FIDK900805
+        exclude:
+          - /test/
